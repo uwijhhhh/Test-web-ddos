@@ -1,10 +1,112 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
-  <title>Test Charge</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Site de Test Animé</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+      text-align: center;
+    }
+
+    .content {
+      background-color: white;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    h1 {
+      font-size: 3em;
+      color: #333;
+      animation: slideIn 1s ease-out;
+    }
+
+    p {
+      font-size: 1.2em;
+      color: #555;
+      animation: fadeInText 2s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+        transform: scale(0.5);
+      }
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    @keyframes slideIn {
+      0% {
+        transform: translateY(-100px);
+        opacity: 0;
+      }
+      100% {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    @keyframes fadeInText {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+
+    .btn {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 1.2em;
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .btn:hover {
+      background-color: #0056b3;
+    }
+
+  </style>
 </head>
 <body>
-  <h1>Bienvenue sur le site de test</h1>
-  <p>Tu peux tester des requêtes vers cette page</p>
+
+  <div class="content">
+    <h1>Bienvenue sur mon site de test animé</h1>
+    <p>Ceci est une page de test avec des animations CSS pour tester la charge.</p>
+    <button class="btn" onclick="handleClick()">Cliquez-moi !</button>
+  </div>
+
+  <script>
+    // Animation supplémentaire sur clic
+    function handleClick() {
+      const content = document.querySelector('.content');
+      content.style.animation = 'fadeOut 2s ease-out forwards';
+    }
+
+    // Animation de sortie après 5 secondes
+    setTimeout(function() {
+      document.querySelector('.content').style.animation = 'fadeOut 2s ease-out forwards';
+    }, 5000);
+  </script>
+
 </body>
 </html>
